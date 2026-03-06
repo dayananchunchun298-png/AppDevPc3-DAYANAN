@@ -1,27 +1,29 @@
-import { Text, View } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { Text, View, TextInput, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: { width: '100%' },
+  inputBase: { borderBottomWidth: 2, borderColor: 'black', width: '100%' },
+});
 
 const CustomTextInput = ({
   placeholder,
   label,
   value,
+  onChangeText,
   textStyle,
   containerStyle,
+  TextInputStyle,
+  secureTextEntry = false,
 }) => {
   return (
-    <View style={containerStyle}>
-      <Text>{label}</Text>
+    <View style={[styles.container, containerStyle]}>
+      <Text style={textStyle}>{label}</Text>
       <TextInput
         placeholder={placeholder}
-        onChangeText={value}
-        style={[
-          textStyle,
-          {
-            borderBottomWidth: 2,
-            borderColor: 'black',
-            width: '100%',
-          },
-        ]}
+        value={value}
+        onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry}
+        style={[styles.inputBase, TextInputStyle]}
       />
     </View>
   );

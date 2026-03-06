@@ -1,0 +1,22 @@
+To fix the RED SCREEN "PlatformConstants could not be found" (Bridgeless error):
+
+*** Pressing RELOAD (R,R) will NOT fix this. You must uninstall the app first. ***
+
+1. UNINSTALL the app from your Android emulator (required):
+   - On the emulator: long-press the "DAYANAN" app icon
+   - Tap Uninstall (or App info → Uninstall)
+   - If you skip this, the red screen will keep appearing.
+
+2. Stop Metro if it's running (Ctrl+C in the terminal).
+
+3. From project root (DAYANAN folder), run ONE of these:
+
+   Option A - Use the fix script (easiest):
+   fix-android-red-screen.bat
+
+   Option B - Manual commands:
+   npx react-native run-android --reset-cache
+
+4. Wait for the build to finish and the app to install. The login screen should appear.
+
+Why: The app currently on the emulator was built with New Architecture (Bridgeless). Our project now has New Architecture OFF. You must uninstall the old app so the new build can install. Without uninstalling, the emulator keeps running the old broken app.

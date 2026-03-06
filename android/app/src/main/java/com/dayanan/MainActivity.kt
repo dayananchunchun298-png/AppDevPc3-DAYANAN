@@ -16,7 +16,7 @@ class MainActivity : ReactActivity() {
   override fun getMainComponentName(): String = "DAYANAN"
    override fun onCreate(savedInstanceState: Bundle?) {
     supportFragmentManager.fragmentFactory = RNScreensFragmentFactory()
-    super.onCreate(savedInstanceState)
+    super.onCreate(null) // Prevent "Screen fragments should never be restored" crash
   }
 
   /**

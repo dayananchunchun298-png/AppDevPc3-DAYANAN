@@ -1,16 +1,19 @@
-import React from 'react'
-import {View, Text, Image} from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native';
+import ImageAssets from '../utils/image';
+
+const styles = StyleSheet.create({
+  container: {},
+  logo: { width: 200, height: 200 },
+  title: { fontSize: 18 },
+});
 
 const HomeScreen = () => {
-    return (
-    <View>
-
-     <Image src = {{url:Image.LOGO}}
-        style={{width: 200, height: 200,}}/>
-
-     <Text>homescreen</Text>
+  return (
+    <View style={styles.container}>
+      <Image source={{ uri: ImageAssets.LOGO }} style={styles.logo} />
+      <Text style={styles.title}>homescreen</Text>
     </View>
-    )
-}
+  );
+};
 
 export default HomeScreen;
